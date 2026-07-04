@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>al-Rasheed-AI - Your Complete Islamic Companion</title>
+    <meta name="description" content="al-Rasheed-AI - Your complete Islamic companion with Quran, Hadith, Dua, Tasbeeh, Qibla finder, and AI assistant">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* =======================================
+           DEEN COMPANION - Complete CSS Stylesheet
+           ======================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #059669;
+            --primary-dark: #047857;
+            --primary-light: #10b981;
+            --secondary-color: #d97706;
+            --accent-color: #f59e0b;
+            --gold: #d4af37;
+            --gold-light: #f4d06f;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --text-gray: #9ca3af;
+            --white: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-dark: #111827;
+            --bg-card: #ffffff;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
+            --radius: 12px;
+            --radius-lg: 24px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =======================================
+           UTILITY CLASSES
+           ======================================= */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-gold {
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            color: var(--white);
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* =======================================
+           NAVIGATION
+           ======================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            color: var(--primary-color);
+            font-size: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links li a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .mobile-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* =======================================
+           HERO SECTION
+           ======================================= */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 160px 0 100px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .geometric-pattern {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+            z-index: -2;
+        }
+
+        .shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            background: var(--primary-color);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            bottom: 20%;
+            right: 10%;
+            background: var(--secondary-color);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .shape-3 {
+            top: 40%;
+            right: 30%;
+            width: 200px;
+            height: 200px;
+            background: var(--gold);
+            animation: float 12s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, 50px) rotate(180deg); }
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--primary-color);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .app-mockup {
+            position: relative;
+            width: 320px;
+            height: 650px;
+            background: var(--white);
+            border-radius: 45px;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            border: 12px solid #1f2937;
+            animation: phone-float 6s ease-in-out infinite;
+        }
+
+        @keyframes phone-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .mockup-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: #1f2937;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            z-index: 10;
+        }
+
+        .mockup-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            overflow: hidden;
+        }
+
+        .mockup-content {
+            padding: 50px 25px;
+            height: 100%;
+        }
+
+        .mockup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .mockup-header i {
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+
+        .hero-quote-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-quote-card::before {
+            content: '"';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 80px;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: 'Amiri', serif;
+        }
+
+        .hero-quote-card i {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .hero-quote-text {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-family: 'Amiri', serif;
+            line-height: 1.6;
+        }
+
+        .hero-quote-ref {
+            font-size: 13px;
+            color: var(--text-gray);
+            font-style: italic;
+        }
+
+        .hero-features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+        }
+
+        .hero-feature-item i {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        .scroll-indicator i {
+            font-size: 32px;
+            color: var(--text-dark);
+            opacity: 0.5;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* =======================================
+           FEATURES SECTION
+           ======================================= */
+        .features {
+            background: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 25px;
+        }
+
+        .feature-icon i {
+            font-size: 36px;
+            color: var(--white);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .feature-icon .glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 110px;
+            height: 110px;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .feature-list li {
+            font-size: 14px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li i {
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+
+        /* =======================================
+           ABOUT SECTION
+           ======================================= */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-stat {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .about-stat .number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .about-stat .label {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* =======================================
+           SCREENSHOTS SECTION
+           ======================================= */
+        .screenshots {
+            background: var(--bg-light);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .screenshot-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .screenshot-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screenshot-img i {
+            font-size: 60px;
+            color: var(--primary-color);
+            opacity: 0.8;
+        }
+
+        .screenshot-info {
+            padding: 25px;
+        }
+
+        .screenshot-info h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .screenshot-info p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =======================================
+           WHY CHOOSE SECTION
+           ======================================= */
+        .why-choose {
+            background: var(--white);
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .why-card i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .why-card:hover i {
+            color: var(--secondary-color);
+        }
+
+        .why-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .why-card p {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* =======================================
+           TESTIMONIALS SECTION
+           ======================================= */
+        .testimonials {
+            background: var(--bg-light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 60px;
+            color: var(--primary-color);
+            opacity: 0.1;
+            font-family: 'Amiri', serif;
+        }
+
+        .rating {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .rating i {
+            fill: var(--secondary-color);
+        }
+
+        .testimonial-card p {
+            color: var(--text-dark);
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        .author-location {
+            color: var(--text-gray);
+            font-size: 13px;
+        }
+
+        /* =======================================
+           FAQ SECTION
+           ======================================= */
+        .faq {
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: 40px auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .faq-item.active {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 30px;
+            background: var(--white);
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--bg-light);
+        }
+
+        .faq-answer p {
+            padding: 0 30px;
+            color: var(--text-light);
+            line-height: 1.8;
+            padding-bottom: 20px;
+        }
+
+        /* =======================================
+           DOWNLOAD SECTION
+           ======================================= */
+        .download {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" stroke="white" stroke-opacity="0.1" fill="none"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .download-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .download p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .app-store-btn,
+        .google-play-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 16px 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .app-store-btn:hover,
+        .google-play-btn:hover {
+            background: var(--bg-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .app-store-btn i,
+        .google-play-btn i {
+            font-size: 36px;
+            color: var(--text-dark);
+        }
+
+        .play-store-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .play-store-text small {
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+
+        .play-store-text span {
+            font-size: 16px;
+        }
+
+        .download-features {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .download-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .download-feature i {
+            color: var(--gold);
+            font-size: 24px;
+        }
+
+        /* =======================================
+           CONTACT SECTION
+           ======================================= */
+        .contact {
+            background: var(--bg-light);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 50px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--radius);
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 16px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* =======================================
+           FOOTER
+           ======================================= */
+        .footer {
+            background: #1f2937;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .footer-brand .logo {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand .logo i {
+            color: var(--primary-color);
+        }
+
+        .footer-brand p {
+            color: #9ca3af;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--white);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 50px;
+            flex: 2;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #9ca3af;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #9ca3af;
+        }
+
+        /* =======================================
+           THEME TOGGLE
+           ======================================= */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-toggle i {
+            font-size: 24px;
+        }
+
+        body.dark-mode {
+            background: var(--bg-dark);
+            color: #f3f4f6;
+        }
+
+        body.dark-mode .navbar.scrolled {
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        body.dark-mode .feature-card,
+        body.dark-mode .testimonial-card,
+        body.dark-mode .contact-form,
+        body.dark-mode .faq-item {
+            background: #2d3748;
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        body.dark-mode .about-stat {
+            background: #2d3748;
+        }
+
+        body.dark-mode .faq-answer {
+            background: #2d3748;
+        }
+
+        body.dark-mode .footer {
+            background: #1a202c;
+        }
+
+        /* =======================================
+           SCROLL REVEAL ANIMATIONS
+           ======================================= */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =======================================
+           RESPONSIVE
+           ======================================= */
+        @media (max-width: 1024px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .download-feature {
+                margin: 0 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-lg);
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links li a {
+                padding: 12px 0;
+                display: block;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(10px, 10px);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(9px, -9px);
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .features-grid,
+            .screenshots-grid,
+            .why-choose-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-container {
+                max-width: 100%;
+            }
+
+            .download-features {
+                gap: 25px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-quote-card {
+                padding: 15px;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .app-store-btn,
+            .google-play-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .play-store-text {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="logo">
+                <i class="fas fa-mosque"></i>
+                <span>al-Rasheed-AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#why-choose">Why Choose</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="geometric-pattern">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text scroll-reveal">
+                    <div class="badge">Your Complete Islamic Companion</div>
+                    <h1>Your Spiritual Journey,<br><span class="highlight">Simplified & Guided</span></h1>
+                    <p>al-Rasheed-AI is your all-in-one Islamic app designed to strengthen your faith and make your daily worship easier. Access the Quran, Hadith, Duas, Tasbeeh, Qibla finder, and more - all in one beautiful app.</p>
+                    <div class="hero-buttons">
+                        <a href="al-Rasheed-ai.apk" class="btn btn-primary" download>
+                            <i class="fas fa-download"></i>
+                            <span>Download Now</span>
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            <i class="fas fa-compass"></i>
+                            <span>Explore Features</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image scroll-reveal">
+                    <div class="app-mockup">
+                        <div class="mockup-notch"></div>
+                        <div class="mockup-screen">
+                            <div class="mockup-content">
+                                <div class="mockup-header">
+                                    <i class="fas fa-moon"></i>
+                                    <i class="fas fa-sun"></i>
+                                    <i class="fas fa-compass"></i>
+                                </div>
+                                <div class="hero-quote-card">
+                                    <i class="fas fa-heart"></i>
+                                    <p class="hero-quote-text">"Verily, with every hardship there is ease. Indeed, with hardship comes ease."</p>
+                                    <p class="hero-quote-ref">- Surah Ash-Sharh 94:5-6</p>
+                                </div>
+                                <div class="hero-features-list">
+                                    <div class="hero-feature-item">
+                                        <i class="fas fa-book-open"></i>
+                                        <span>Quran with Translation</span>
+                                    </div>
+                                    <div class="hero-feature-item">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Prayer Times</span>
+                                    </div>
+                                    <div class="hero-feature-item">
+                                        <i class="fas fa-compass"></i>
+                                        <span>Qibla Finder</span>
+                                    </div>
+                                    <div class="hero-feature-item">
+                                        <i class="fas fa-hadith"></i>
+                                        <span>Hadith Collection</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-padding features">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Comprehensive Islamic Features</h2>
+                <p class="section-subtitle">Everything you need for your spiritual journey, all in one app</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-quran"></i>
+                        <div class="glow"></div>
+                    </div>
+                    <h3>Quran Reader</h3>
+                    <p>Read the Noble Quran with beautiful Arabic script, translation, and tafsir. Choose from multiple Qira'at styles and listen to renowned reciters.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Multiple translation languages</li>
+                        <li><i class="fas fa-check"></i> Tafsir Ibn Kathir</li>
+                        <li><i class="fas fa-check"></i> Audio recitation</li>
+                        <li><i class="fas fa-check"></i> Bookmark & notes</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-scroll"></i>
+                        <div class="glow"></div>
+                    </div>
+                    <h3>Sahih Hadith</h3>
+                    <p>Access authentic collections of Hadith with English translation and searchable database for easy reference. Includes Bukhari, Muslim, and more.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Sahih Al-Bukhari</li>
+                        <li><i class="fas fa-check"></i> Sahih Muslim</li>
+                        <li><i class="fas fa-check"></i> Search & filter</li>
+                        <li><i class="fas fa-check"></i> Favorites & sharing</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-pray"></i>
+                        <div class="glow"></div>
+                    </div>
+                    <h3>Daily Duas</h3>
+                    <p>Access a comprehensive collection of duas for every situation in life with proper Arabic, pronunciation, and translation.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Categorized duas</li>
+                        <li><i class="fas fa-check"></i> Arabic with translation</li>
+                        <li><i class="fas fa-check"></i> Favorites collection</li>
+                        <li><i class="fas fa-check"></i> Share duas</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-beads"></i>
+                        <div class="glow"></div>
+                    </div>
+                    <h3>Tasbeeh Counter</h3>
+                    <p>Keep track of your daily remembrances with a digital tasbeeh counter. Perfect for Dhikr after prayers and throughout the day.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Multiple counter modes</li>
+                        <li><i class="fas fa-check"></i> Dhikr collections</li>
+                        <li><i class="fas fa-check"></i> Progress tracking</li>
+                        <li><i class="fas fa-check"></i> Ramadan tracker</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-compass"></i>
+                        <div class="glow"></div>
+                    </div>
+                    <h3>Qibla Finder</h3>
+                    <p>Find the correct direction for prayer anywhere in the world with an accurate compass-based Qibla finder that works offline.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Compass-based direction</li>
+                        <li><i class="fas fa-check"></i> Distance to Kaaba</li>
+                        <li><i class="fas fa-check"></i> Offline functionality</li>
+                        <li><i class="fas fa-check"></i> AR mode</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                        <div class="glow"></div>
+                    </div>
+                    <h3>AI Assistant</h3>
+                    <p>Get quick answers to your Islamic questions with our AI Islamic assistant. Learn about rulings, Hadith, and Islamic knowledge.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Islamic knowledge base</li>
+                        <li><i class="fas fa-check"></i> Question & answer</li>
+                        <li><i class="fas fa-check"></i> Quran search</li>
+                        <li><i class="fas fa-check"></i> Hadith search</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                        <div class="glow"></div>
+                    </div>
+                    <h3>Offline Access</h3>
+                    <p>All features work without internet connection. Download content once and access it anytime, anywhere.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Quran offline</li>
+                        <li><i class="fas fa-check"></i> Hadith offline</li>
+                        <li><i class="fas fa-check"></i> No data usage</li>
+                        <li><i class="fas fa-check"></i> Travel friendly</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                        <div class="glow"></div>
+                    </div>
+                    <h3>Prayer Times</h3>
+                    <p>Never miss a prayer with accurate times calculated for your exact location. Get notifications and see Qibla direction.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Automatic location detection</li>
+                        <li><i class="fas fa-check"></i> Prayer time notifications</li>
+                        <li><i class="fas fa-check"></i> Countdown to next prayer</li>
+                        <li><i class="fas fa-check"></i> Adhan alarm</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-day"></i>
+                        <div class="glow"></div>
+                    </div>
+                    <h3>Daily Reminders</h3>
+                    <p>Start and end your day with inspiring Islamic quotes and reminders to keep you connected to your faith.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Morning & evening Dhikr</li>
+                        <li><i class="fas fa-check"></i> Islamic quotes</li>
+                        <li><i class="fas fa-check"></i> Daily inspiration</li>
+                        <li><i class="fas fa-check"></i> Customizable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text scroll-reveal">
+                    <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+                        <h2 style="font-size: 36px;">Our Mission</h2>
+                        <p style="color: var(--text-light);">Helping Muslims strengthen their faith through technology</p>
+                    </div>
+                    <p>al-Rasheed-AI was created with a simple yet powerful mission: to make it easier for Muslims around the world to practice their faith and grow closer to Allah. We believe that technology can be a powerful tool for spiritual growth when used with the right intentions.</p>
+                    <p>Our journey began with a group of devout Muslims who recognized the challenges many face in accessing authentic Islamic knowledge and tools. We combined our expertise in technology with our deep love for Islam to create an app that serves the Ummah in the best possible way.</p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <div class="about-stat__number" data-target="50000">0</div>
+                            <div class="about-stat__label">Active Users</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat__number" data-target="100">0</div>
+                            <div class="about-stat__label">Countries</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat__number" data-target="99">0</div>
+                            <div class="about-stat__label%">5-Star Rating</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat__number" data-target="24">0</div>
+                            <div class="about-stat__label">Hours Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image scroll-reveal">
+                    <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-xl);">
+                        <div style="text-align: center; color: var(--white);">
+                            <i class="fas fa-heart" style="font-size: 60px; margin-bottom: 20px; opacity: 0.8;"></i>
+                            <h3 style="font-size: 28px; margin-bottom: 10px;">Built with Faith</h3>
+                            <p>Every feature designed to help you grow in Deen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="section-padding screenshots">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">App in Action</h2>
+                <p class="section-subtitle">See al-Rasheed-AI in action with these feature previews</p>
+            </div>
+
+            <div class="screenshots-grid">
+                <div class="screenshot-card scroll-reveal">
+                    <div class="screenshot-img">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Beautiful Quran Reader</h4>
+                        <p>Experience the Quran with beautiful Arabic typography, smooth scrolling, and easy-to-use interface. Read with translation, tafsir, and listen to recitations.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card scroll-reveal">
+                    <div class="screenshot-img">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Accurate Prayer Times</h4>
+                        <p>Never miss a prayer again. Get accurate prayer times calculated for your exact location with automatic updates and customizable notifications.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card scroll-reveal">
+                    <div class="screenshot-img">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Qibla Finder</h4>
+                        <p>Find the Qibla direction with precision using your device's compass. Shows distance to Kaaba and real-time direction regardless of your location.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card scroll-reveal">
+                    <div class="screenshot-img">
+                        <i class="fas fa-hadith"></i>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Hadith Library</h4>
+                        <p>Access authentic Hadith collections with English translation. Search, filter, and save your favorite Hadith for easy reference.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card scroll-reveal">
+                    <div class="screenshot-img">
+                        <i class="fas fa-beads"></i>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Dhikr Counter</h4>
+                        <p>Track your daily remembrances with our digital tasbeeh. Multiple counter modes, progress tracking, and Islamic quote database included.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card scroll-reveal">
+                    <div class="screenshot-img">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Daily Reminders</h4>
+                        <p>Start and end your day with inspiration. Receive daily Islamic quotes, morning/evening Dhikr, and spiritual reminders.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section id="why-choose" class="section-padding why-choose">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Why Choose al-Rasheed-AI</h2>
+                <p class="section-subtitle">The app designed with your spiritual needs in mind</p>
+            </div>
+
+            <div class="why-choose-grid">
+                <div class="why-card scroll-reveal">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Authentic & Accurate</h3>
+                    <p>All content is carefully reviewed by Islamic scholars to ensure authenticity and accuracy. You can trust the information you find in al-Rasheed-AI.</p>
+                </div>
+                <div class="why-card scroll-reveal">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Offline Access</h3>
+                    <p>Download content once and access it anytime, anywhere. Perfect for travel, Umrah, Hajj, or anytime you need connectivity.</p>
+                </div>
+                <div class="why-card scroll-reveal">
+                    <i class="fas fa-sync"></i>
+                    <h3>Regular Updates</h3>
+                    <p>We continuously improve al-Rasheed-AI with new features, better performance, and additional content based on user feedback.</p>
+                </div>
+                <div class="why-card scroll-reveal">
+                    <i class="fas fa-users"></i>
+                    <h3>Community Focused</h3>
+                    <p>Built by Muslims, for Muslims. Every feature is designed to serve the Ummah and help strengthen our collective faith.</p>
+                </div>
+                <div class="why-card scroll-reveal">
+                    <i class="fas fa-heart"></i>
+                    <h3>Designed with Care</h3>
+                    <p>A beautiful, intuitive interface that makes Islamic practices easy to incorporate into your daily life.</p>
+                </div>
+                <div class="why-card scroll-reveal">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Smart Features</h3>
+                    <p>AI assistant, personalized reminders, and smart search make finding what you need faster and easier.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding testimonials">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">What Our Users Say</h2>
+                <p class="section-subtitle">Real experiences from Muslims around the world</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card scroll-reveal">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"al-Rasheed-AI has completely transformed my daily worship routine. The prayer times are accurate, the Quran reader is beautiful, and the offline features are a lifesaver during travel. Highly recommended!"</p>
+                    <div class="author-info">
+                        <div class="author-avatar">AR</div>
+                        <div>
+                            <div class="author-name">Ahmed R.</div>
+                            <div class="author-location">London, UK</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card scroll-reveal">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Finally an app that brings together everything I need for my Deen! The Hadith collection is comprehensive, the Tasbeeh counter works perfectly, and the AI assistant is incredibly helpful for quick questions."</p>
+                    <div class="author-info">
+                        <div class="author-avatar">SM</div>
+                        <div>
+                            <div class="author-name">Sarah M.</div>
+                            <div class="author-location">New York, USA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card scroll-reveal">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The Qibla finder is incredibly accurate and easy to use. I appreciate how thoughtfully this app was designed - it truly makes growing in Islam easier and more consistent in my daily life."</p>
+                    <div class="author-info">
+                        <div class="author-avatar">MK</div>
+                        <div>
+                            <div class="author-name">Muhammad K.</div>
+                            <div class="author-location">Toronto, Canada</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card scroll-reveal">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"As a new Muslim, al-Rasheed-AI has been my go-to resource for learning about prayers, Hadith, and Islamic practices. The interface is beautiful and the content is always accurate. Masha'Allah!"</p>
+                    <div class="author-info">
+                        <div class="author-avatar">JE</div>
+                        <div>
+                            <div class="author-name">John E.</div>
+                            <div class="author-location">Sydney, Australia</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card scroll-reveal">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The best Islamic app I've used! Offline functionality works perfectly during my travels, and the daily reminders keep me connected to my faith. Great job by the team!"</p>
+                    <div class="author-info">
+                        <div class="author-avatar">YL</div>
+                        <div>
+                            <div class="author-name">Yusuf L.</div>
+                            <div class="author-location">Johannesburg, SA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card scroll-reveal">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Simple, beautiful, and functional. al-Rasheed-AI has everything I need without being overwhelming. The design is calming and makes using the app a pleasant experience."</p>
+                    <div class="author-info">
+                        <div class="author-avatar">NF</div>
+                        <div>
+                            <div class="author-name">Nadia F.</div>
+                            <div class="author-location">Amman, Jordan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding faq">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Common questions about al-Rasheed-AI</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>Is al-Rasheed-AI free to use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, al-Rasheed-AI is free to download and use with all essential features. We offer a premium version with additional features and no ads for those who wish to support us.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>How accurate are the prayer times?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We use highly accurate calculation methods based on your precise location. The algorithm follows the Umm al-Qura calculation method and can be customized to your preferred calculation school.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>Does the app work offline?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! The Quran, Hadith, and Tasbeeh features work offline once content is downloaded. The prayer times and Qibla finder require location services but work without internet connection.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>Can I customize my experience?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! You can customize your location, calculation preferences, notification times, theme (light/dark mode), and more to create an experience that works best for you.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>How do I update the content?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Content updates happen automatically when you update the app. We regularly add new Hadith, duas, and features based on user feedback and scholarly input.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>Is my data private?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, privacy is our priority. We don't sell your data and only collect what's necessary to improve your experience. All your personal settings and favorites are stored locally on your device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="section-padding download">
+        <div class="container">
+            <div class="download-content scroll-reveal">
+                <h2>Download al-Rasheed-AI</h2>
+                <p>Experience the complete Islamic companion on your mobile device. Access the Quran, Hadith, prayer times, Qibla finder, and more from anywhere.</p>
+
+                <div class="download-buttons">
+                    <a href="al-Rasheed-ai.apk" class="google-play-btn" download>
+                        <i class="fas fa-download"></i>
+                        <div class="play-store-text">
+                            <small>Download APK</small>
+                            <span>al-Rasheed-AI</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="download-features">
+                    <div class="download-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Ad-free experience</span>
+                    </div>
+                    <div class="download-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Offline mode available</span>
+                    </div>
+                    <div class="download-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Regular updates</span>
+                    </div>
+                    <div class="download-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Multi-language support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding contact">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+
+            <div class="contact-container scroll-reveal">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Send Message</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <i class="fas fa-mosque"></i>
+                        <span>al-Rasheed-AI</span>
+                    </a>
+                    <p>Your companion in faith, guiding you closer to Allah in everyday life. Built with love for the Ummah.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>App</h4>
+                        <a href="#home">Home</a>
+                        <a href="#features">Features</a>
+                        <a href="#about">About</a>
+                        <a href="#download">Download</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#">Quran</a>
+                        <a href="#">Hadith</a>
+                        <a href="#">Prayer Times</a>
+                        <a href="#">Dua Collection</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="#">Contact Us</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 al-Rasheed-AI. All rights reserved. Designed with love for the Ummah.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </div>
+
+    <script>
+        // =======================================
+        // DEEN COMPANION - Interactive JavaScript
+        // =======================================
+
+        // =======================================
+        // THEME TOGGLE
+        // =======================================
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            body.classList.toggle('dark-mode');
+            themeIcon.className = body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-icon').className = 'fas fa-sun';
+            }
+        });
+
+        // =======================================
+        // SCROLL REVEAL ANIMATIONS
+        // =======================================
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.scroll-reveal');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                if (elementPosition.top < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // =======================================
+        // NAVIGATION
+        // =======================================
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (navLinks.classList.contains('active')) {
+                if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                }
+            }
+        });
+
+        // Active navigation link on scroll
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            const navLinksAnchors = document.querySelectorAll('.nav-links a');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksAnchors.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // =======================================
+        // STAT ANIMATIONS
+        // =======================================
+        function animateNumbers() {
+            const statNumbers = document.querySelectorAll('.about-stat__number, .stat-number');
+
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const isPercentage = stat.getAttribute('data-target').includes('%');
+                const duration = 2000;
+                const startTime = null;
+
+                gsap.to(stat, {
+                    duration: 2,
+                    innerHTML: target + (isPercentage ? '%' : ''),
+                    snap: { innerHTML: 1 },
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: stat.closest('.about-stat, .stat-item'),
+                        start: 'top 70%',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
+            });
+        }
+
+        // =======================================
+        // FAQ ACCORDION
+        // =======================================
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.closest('.faq-item');
+                const answer = this.nextElementSibling;
+
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+
+        // =======================================
+        // CONTACT FORM SUBMISSION
+        // =======================================
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                alert(`Thank you, ${name}! Your message has been sent. We will get back to you soon.`);
+                contactForm.reset();
+            });
+        }
+
+        // =======================================
+        // INTERSECTION OBSERVER FOR LAZY LOADING
+        // =======================================
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                        }
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.01
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // =======================================
+        // FLOATING ELEMENTS
+        // =======================================
+        function createFloatingElements() {
+            const floatingItems = document.querySelectorAll('.shape');
+
+            floatingItems.forEach((item, index) => {
+                const delay = index * 1.5;
+                const duration = 3 + Math.random() * 3;
+
+                gsap.fromTo(item, {
+                    y: 0
+                }, {
+                    y: Math.random() * 30,
+                    duration: duration,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut',
+                    delay: delay
+                });
+            });
+        }
+
+        // Initialize animations
+        createFloatingElements();
+    </script>
+</body>
+</html>
