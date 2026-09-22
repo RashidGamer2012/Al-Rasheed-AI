@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Rasheed AI — The Complete Islamic Companion, Powered by On-Device AI</title>
+<meta name="description" content="Quran, 72,313 Hadith across 9 collections with Urdu tafseer, Prayer, Qibla, Azkar, Hajj, an on-device AI scholar and offline recitation correction. Al-Rasheed AI is the complete Islamic companion for Android.">
+<meta property="og:title" content="Al-Rasheed AI — The Complete Islamic App with On-Device AI">
+<meta property="og:description" content="A complete Islamic companion: Quran, Hadith, Prayer, Azkar, Hajj, an offline recitation coach and an AI scholar that runs entirely on your phone. No account. No ads. No eyes but yours.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230c1811'/%3E%3Cpath d='M32 10l5.2 12.4L50 24l-9.4 8.8L43 46l-11-6.6L21 46l2.4-13.2L14 24l12.8-1.6z' fill='%23d4af37'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ═══════════════ PRELOADER ═══════════════ -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pl-inner">
+    <svg class="pl-ring" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(212,175,55,.15)" stroke-width="1.5"/>
+      <circle class="pl-arc" cx="60" cy="60" r="54" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="70 270"/>
+    </svg>
+    <span class="pl-basmala">بِسْمِ اللَّهِ</span>
+    <span class="pl-label">AL-RASHEED AI</span>
+  </div>
+  <div class="pl-curtain"></div>
+  <div class="pl-curtain pl-curtain--2"></div>
+</div>
+
+<!-- ═══════════════ CUSTOM CURSOR (fine pointers only) ═══════════════ -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ═══════════════ PROGRESS + NAV ═══════════════ -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="Al-Rasheed AI home">
+    <svg viewBox="0 0 64 64" class="nav__mark" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2"/><path d="M32 10l5.2 12.4L50 24l-9.4 8.8L43 46l-11-6.6L21 46l2.4-13.2L14 24l12.8-1.6z" fill="currentColor"/></svg>
+    <span class="nav__wordmark">AL-RASHEED<span>AI</span></span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#ai">Intelligence</a>
+    <a href="#features">Features</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#trust">Transparency</a>
+    <a href="#numbers">Numbers</a>
+    <a href="#availability">Get the App</a>
+  </nav>
+  <a class="nav__cta magnetic" href="#availability">Download</a>
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<!-- ═══════════════ MOBILE DRAWER ═══════════════ -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <nav>
+    <a href="#ai">Intelligence</a>
+    <a href="#features">Features</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#trust">Transparency</a>
+    <a href="#numbers">Numbers</a>
+    <a href="#availability">Get the App</a>
+  </nav>
+  <div class="drawer__foot">
+    <span class="drawer__basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+  </div>
+</div>
+<div class="drawer-scrim" id="drawerScrim" aria-hidden="true"></div>
+
+<main id="top">
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="hero">
+  <video class="hero__bg" id="heroBg" autoplay muted loop playsinline preload="auto"
+    poster="https://images.pexels.com/photos/30768738/pexels-photo-30768738.jpeg?auto=compress&cs=tinysrgb&w=1600">
+    <source src="https://videos.pexels.com/video-files/25921138/11921030_640_360_24fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero__scrim"></div>
+
+  <div class="hero__inner">
+    <p class="hero__eyebrow reveal">The Complete Islamic Companion · Android</p>
+    <h1 class="hero__title">
+      <span class="line-mask"><span class="line-mask__inner reveal">Your Deen,</span></span>
+      <span class="line-mask"><span class="line-mask__inner reveal" style="--d:.12s">Beautifully <em>Illuminated.</em></span></span>
+    </h1>
+    <p class="hero__sub reveal" style="--d:.25s">
+      Quran, Hadith, Prayer, Qibla, Azkar, Hajj — a private AI scholar that runs
+      <strong>entirely on your phone</strong>, and a recitation coach that listens offline.
+      No account. No ads. No eyes but yours.
+    </p>
+    <div class="hero__actions reveal" style="--d:.38s">
+      <a class="btn btn--gold magnetic" href="#availability">Get Al-Rasheed AI</a>
+      <a class="btn btn--ghost magnetic" href="#ai">Meet the AI Scholar</a>
+    </div>
+    <div class="hero__badges reveal" style="--d:.5s">
+      <span class="badge">Offline by Design</span>
+      <span class="badge">On-Device AI</span>
+      <span class="badge">Recitation AI Bundled</span>
+      <span class="badge">No Sign-Up</span>
+      <span class="badge">No Ads</span>
+    </div>
+  </div>
+
+  <div class="hero__phone hero__phone--float" data-parallax="0.18">
+    <div class="phone">
+      <div class="phone__notch"></div>
+      <div class="phone__screen">
+        <div class="scr scr--chat">
+          <div class="scr__head">AI Chat</div>
+          <div class="bubble bubble--user reveal" style="--d:.9s">What does the Qur'an say about patience?</div>
+          <div class="bubble bubble--ai reveal" style="--d:1.3s">"O you who believe, seek help through patience and prayer…" <span class="bubble__cite">Al-Baqarah 2:153</span></div>
+          <div class="bubble bubble--typing"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+      <div class="phone__shine"></div>
+    </div>
+  </div>
+
+  <a class="hero__scrollcue" href="#ai" aria-label="Scroll to explore">
+    <span>Scroll</span><i></i>
+  </a>
+</section>
+
+<!-- ═══════════════ MARQUEE ═══════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" data-marquee>
+    <span>Quran · 114 Surahs</span><span class="m-star">✦</span>
+    <span>72,313 Hadith · 9 Collections</span><span class="m-star">✦</span>
+    <span>Urdu Translation &amp; Tafseer</span><span class="m-star">✦</span>
+    <span>8 Tafsir Editions</span><span class="m-star">✦</span>
+    <span>Prayer Times &amp; Adhan</span><span class="m-star">✦</span>
+    <span>Qibla Compass</span><span class="m-star">✦</span>
+    <span>Tasbih Counter</span><span class="m-star">✦</span>
+    <span>Azkar Al-Sabah wal-Masa</span><span class="m-star">✦</span>
+    <span>Recitation Correction AI</span><span class="m-star">✦</span>
+    <span>Hajj &amp; Umrah Guide</span><span class="m-star">✦</span>
+    <span>Tajweed Rules</span><span class="m-star">✦</span>
+    <span>On-Device AI Scholar</span><span class="m-star">✦</span>
+  </div>
+</div>
+
+<!-- ═══════════════ AI SHOWCASE (pinned choreography) ═══════════════ -->
+<section class="ai" id="ai">
+  <div class="ai__sticky">
+    <video class="ai__bg" id="aiBg" muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/36072619/15298032_640_360_30fps.mp4"
+      poster="https://images.pexels.com/videos/36072619/pexels-photo-36072619.jpeg?auto=compress&cs=tinysrgb&w=1600"></video>
+    <div class="ai__scrim"></div>
+
+    <div class="ai__stage">
+      <header class="ai__head">
+        <p class="eyebrow eyebrow--gold reveal">The Private AI Scholar</p>
+        <h2 class="ai__title"><span class="reveal">An AI that answers with</span> <em class="reveal" style="--d:.1s">adab.</em></h2>
+      </header>
+
+      <div class="ai__stage-grid">
+        <div class="ai__phone-col">
+          <div class="phone phone--lg" data-tilt>
+            <div class="phone__notch"></div>
+            <div class="phone__screen">
+              <div class="scr scr--chat scr--live" id="aiChatDemo">
+                <div class="scr__head">AI Chat · Offline</div>
+                <div class="bubble bubble--user">What does the Qur'an say about parents?</div>
+                <div class="bubble bubble--ai">“And your Lord has decreed that you worship none but Him, and that you be excellent to parents…”<span class="bubble__cite">Al-Isrā 17:23 · verified in library ✓</span></div>
+                <div class="bubble bubble--typing" id="aiDemoTyping"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <div class="phone__shine"></div>
+          </div>
+        </div>
+
+        <div class="ai__points">
+          <div class="ai-point reveal" data-ai-step="0">
+            <span class="ai-point__idx">01</span>
+            <div>
+              <h3>Runs on your phone, not someone's server.</h3>
+              <p>A 3-billion-parameter language model, downloaded once, runs on-device — your questions never leave your hands. And if your phone can't run it, a built-in lightweight scholar takes over.</p>
+            </div>
+          </div>
+          <div class="ai-point reveal" data-ai-step="1" style="--d:.1s">
+            <span class="ai-point__idx">02</span>
+            <div>
+              <h3>Grounded in Qur'an &amp; authentic Hadith.</h3>
+              <p>Cited from 72,313 narrations across 9 collections and the full Qur'an — references you can verify, not vibes.</p>
+            </div>
+          </div>
+          <div class="ai-point reveal" data-ai-step="2" style="--d:.2s">
+            <span class="ai-point__idx">03</span>
+            <div>
+              <h3>Works in airplane mode.</h3>
+              <p>Zero connectivity required. In the air, underground, in the desert — the scholar in your pocket answers the same.</p>
+            </div>
+          </div>
+          <div class="ai-point reveal" data-ai-step="3" style="--d:.3s">
+            <span class="ai-point__idx">04</span>
+            <div>
+              <h3>Honest when it doesn't know.</h3>
+              <p>If no reliable source is found, the scholar says so — and every citation is validated against the library first.</p>
+            </div>
+          </div>
+          <div class="ai__progress"><i id="aiProgressBar"></i></div>
+          <p class="ai__hint">Keep scrolling — the scholar is listening.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ai__rail" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ MANIFESTO ═══════════════ -->
+<section class="manifesto" id="manifesto">
+  <!-- Video 1: Kaaba at night -->
+  <video class="manifesto__bg" muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/34872085/14776653_360_640_30fps.mp4"
+    poster="https://images.pexels.com/photos/30768738/pexels-photo-30768738.jpeg?auto=compress&cs=tinysrgb&w=1600"></video>
+  <div class="manifesto__scrim"></div>
+  <div class="manifesto__inner">
+    <p class="manifesto__kicker reveal">Why we built this</p>
+    <h2 class="manifesto__line" data-split>Most apps ask for your data. Ours asks for nothing.</h2>
+    <p class="manifesto__line reveal" style="--d:.2s">Every core feature works with the radios off. That is not a limitation —</p>
+    <p class="manifesto__line reveal" style="--d:.35s">that is <em>the whole point.</em></p>
+  </div>
+</section>
+
+<!-- ═══════════════ FEATURE BENTO ═══════════════ -->
+<section class="features" id="features">
+  <header class="features__head">
+    <p class="eyebrow eyebrow--gold reveal">Everything, in one place</p>
+    <h2 class="features__title reveal">One app. <em>Every</em> act of worship.</h2>
+    <p class="features__sub reveal" style="--d:.15s">Every feature engineered like an instrument — precise, private, and beautiful.</p>
+  </header>
+
+  <div class="bento">
+    <!-- QURAN — big video tile -->
+    <article class="tile tile--wide reveal" data-tilt>
+      <video class="tile__bg" muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/5788724/5788724-sd_640_360_25fps.mp4"
+        poster="https://images.pexels.com/videos/5788724/pictures/preview-0.jpg"></video>
+      <div class="tile__scrim"></div>
+      <div class="tile__content">
+        <span class="tile__kicker">The Recitation</span>
+        <h3>Al-Qur'an al-Kareem</h3>
+        <p>All 6,236 verses in the Indo-Pak script — audio recitation, 8 tafsir editions, word meanings, Tajweed and one-tap Hifz in every reader.</p>
+        <ul class="tile__tags"><li>Audio</li><li>8 Tafsir Editions</li><li>Word Meanings</li><li>Hifz Mode</li><li>Tajweed</li></ul>
+      </div>
+    </article>
+
+    <!-- HADITH -->
+    <article class="tile tile--wide reveal" style="--d:.08s" data-tilt>
+      <video class="tile__bg" muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/7401908/7401908-sd_640_360_25fps.mp4"
+        poster="https://images.pexels.com/photos/7249367/pexels-photo-7249367.jpeg?auto=compress&cs=tinysrgb&w=1280"></video>
+      <div class="tile__scrim"></div>
+      <div class="tile__content">
+        <span class="tile__kicker">The Narrations</span>
+        <h3>Hadith Library</h3>
+        <p>72,313 narrations across 9 collections — Arabic, English and Urdu side-by-side, with Urdu tafseer.</p>
+        <ul class="tile__tags"><li>9 Collections</li><li>Urdu Translation</li><li>Urdu Tafseer</li><li>Topics</li></ul>
+      </div>
+    </article>
+
+    <!-- PRAYER -->
+    <article class="tile tile--wide tile--flip reveal" data-tilt>
+      <video class="tile__bg" muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/20231486/20231486-sd_640_360_25fps.mp4"
+        poster="https://images.pexels.com/photos/34154599/pexels-photo-34154599.jpeg?auto=compress&cs=tinysrgb&w=1280"></video>
+      <div class="tile__scrim"></div>
+      <div class="tile__content">
+        <span class="tile__kicker">The Rhythm of the Day</span>
+        <h3>Prayer Times &amp; Adhan</h3>
+        <p>Accurate times computed offline for anywhere on Earth, with a beautiful Adhan — no permissions drama, no data sent.</p>
+        <ul class="tile__tags"><li>Adhan</li><li>Notifications</li><li>Offline</li></ul>
+      </div>
+    </article>
+
+    <!-- TASBIH -->
+    <article class="tile reveal" style="--d:.08s" data-tilt>
+      <video class="tile__bg" muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/20309268/20309268-sd_360_640_25fps.mp4"
+        poster="https://images.pexels.com/photos/8860296/pexels-photo-8860296.jpeg?auto=compress&cs=tinysrgb&w=1280"></video>
+      <div class="tile__scrim"></div>
+      <div class="tile__content">
+        <span class="tile__kicker">The Remembrance</span>
+        <h3>Tasbih Counter</h3>
+        <p>A dhikr counter that feels like beads — haptic, serene, and always with you.</p>
+        <ul class="tile__tags"><li>Haptics</li><li>Presets</li></ul>
+      </div>
+    </article>
+
+    <!-- QIBLA -->
+    <article class="tile reveal" style="--d:.16s" data-tilt>
+      <div class="tile__art" aria-hidden="true"><div class="qibla" id="qiblaDial"><span class="qibla__kaaba"></span><span class="qibla__needle"></span></div></div>
+      <div class="tile__content">
+        <span class="tile__kicker">The Direction</span>
+        <h3>Qibla Compass</h3>
+        <p>Great-circle bearing to the Ka'aba from any point on the planet — computed on-device.</p>
+        <ul class="tile__tags"><li>Compass</li><li>Exact bearing</li></ul>
+      </div>
+    </article>
+
+    <!-- RECITATION AI -->
+    <article class="tile reveal" style="--d:.2s" data-tilt>
+      <div class="tile__art" aria-hidden="true"><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="tile__content">
+        <span class="tile__kicker">The Coach</span>
+        <h3>Recitation Check</h3>
+        <p>Recite a verse aloud — the on-device model follows word by word, marking correct, uncertain and missed.</p>
+        <ul class="tile__tags"><li>Bundled Model</li><li>Word-level</li><li>Offline</li></ul>
+      </div>
+    </article>
+
+    <!-- AI SCHOLAR -->
+    <article class="tile tile--gold reveal" style="--d:.24s" data-tilt>
+      <div class="tile__content">
+        <span class="tile__kicker">The Scholar</span>
+        <h3>On-Device AI</h3>
+        <p>Ask anything about your deen. Answers cited from scripture, generated on your own silicon.</p>
+        <a class="tile__link" href="#ai">See the intelligence →</a>
+      </div>
+    </article>
+
+    <!-- AZKAR -->
+    <article class="tile reveal" style="--d:.32s" data-tilt>
+      <div class="tile__art" aria-hidden="true"><span class="azkar-word">سُبْحَانَ اللَّه</span></div>
+      <div class="tile__content">
+        <span class="tile__kicker">Morning &amp; Evening</span>
+        <h3>Azkar</h3>
+        <p>Morning and evening remembrances with counters and transliteration.</p>
+      </div>
+    </article>
+
+    <!-- HAJJ -->
+    <article class="tile reveal" style="--d:.4s" data-tilt>
+      <div class="tile__art" aria-hidden="true"><span class="hajj-glyph">☄︎</span></div>
+      <div class="tile__content">
+        <span class="tile__kicker">The Journey</span>
+        <h3>Hajj &amp; Umrah</h3>
+        <p>Step-by-step rituals, duas at every station — your companion for the journey of a lifetime.</p>
+      </div>
+    </article>
+  </div>
+
+  <p class="features__more reveal">+ Hifz streaks &amp; daily reminders, 30-parah &amp; mushaf-page readers, Favourites, daily verse notifications, shareable ayah cards, backup &amp; restore, Islamic calendar, Stories of the Prophets, Asma ul Husna &amp; Asma un Nabi, Namaz tracker, home-screen widget — <a href="#availability">all included</a>.</p>
+</section>
+
+<!-- ═══════════════ PRIVACY ═══════════════ -->
+<section class="privacy" id="privacy">
+  <div class="privacy__glow" aria-hidden="true"></div>
+  <div class="privacy__inner">
+    <p class="eyebrow eyebrow--gold reveal">Privacy by architecture</p>
+    <h2 class="privacy__title reveal">What happens on your phone, <em>stays</em> on your phone.</h2>
+    <div class="privacy__grid">
+      <div class="p-card reveal" style="--d:.05s"><span class="p-card__num">01</span><h3>No account</h3><p>There is nothing to sign up for. Open the box, and it works.</p></div>
+      <div class="p-card reveal" style="--d:.12s"><span class="p-card__num">02</span><h3>No tracking</h3><p>No analytics SDKs, no ad networks, no telemetry. Nothing phones home.</p></div>
+      <div class="p-card reveal" style="--d:.19s"><span class="p-card__num">03</span><h3>Encrypted at rest</h3><p>Your library lives in an SQLCipher-encrypted database — bookmarks, notes and streaks included.</p></div>
+      <div class="p-card reveal" style="--d:.26s"><span class="p-card__num">04</span><h3>Offline inference</h3><p>The AI model runs through llama.cpp on your device's silicon. Your questions are never uploaded.</p></div>
+    </div>
+    <p class="privacy__note reveal">Offline out of the box. Optional downloads only: the AI scholar model (once) and Quran/adhan audio — even the recitation model ships inside the APK.</p>
+  </div>
+  <!-- Video 2: Madina at sunset -->
+  <video class="privacy__bg" muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/11647665/11647665-sd_640_360_30fps.mp4"
+    poster="https://images.pexels.com/photos/30768738/pexels-photo-30768738.jpeg?auto=compress&cs=tinysrgb&w=1600"></video>
+  <div class="privacy__veil"></div>
+</section>
+
+<!-- ═══════════════ TRANSPARENCY / RESPONSIBLE AI ═══════════════ -->
+<section class="privacy" id="trust">
+  <div class="privacy__glow" aria-hidden="true"></div>
+  <div class="privacy__inner">
+    <p class="eyebrow eyebrow--gold reveal">Responsible AI</p>
+    <h2 class="privacy__title reveal">An AI scholar with <em>receipts</em> — and limits.</h2>
+    <div class="privacy__grid">
+      <div class="p-card reveal" style="--d:.05s"><span class="p-card__num">01</span><h3>Verified citations</h3><p>Every reference is validated against the on-device library before it's shown — invalid citations never render.</p></div>
+      <div class="p-card reveal" style="--d:.12s"><span class="p-card__num">02</span><h3>Honest fallback</h3><p>When no reliable source is found, the scholar says so plainly instead of generating a confident religious answer.</p></div>
+      <div class="p-card reveal" style="--d:.19s"><span class="p-card__num">03</span><h3>Knows its place</h3><p>Complex or personal rulings carry a standing caution: AI answers can be mistaken — consult qualified scholars.</p></div>
+      <div class="p-card reveal" style="--d:.26s"><span class="p-card__num">04</span><h3>Open about itself</h3><p>A built-in “About AI &amp; Sources” page names the models, the sources and what stays on your device. Report any answer in one tap.</p></div>
+    </div>
+    <p class="privacy__note reveal">Recitation feedback follows the same rule: uncertain words are shown as uncertain — AI feedback never replaces a qualified Qur'an teacher.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ NUMBERS ═══════════════ -->
+<section class="numbers" id="numbers">
+  <video class="numbers__bg" muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/13643578/13643578-sd_640_360_24fps.mp4"
+    poster="https://images.pexels.com/photos/21802645/pexels-photo-21802645.jpeg?auto=compress&cs=tinysrgb&w=1600"></video>
+  <div class="numbers__scrim"></div>
+  <div class="numbers__inner">
+    <p class="eyebrow eyebrow--gold reveal">The library inside</p>
+    <h2 class="numbers__title reveal">A seminary in your pocket.</h2>
+    <div class="stats">
+      <div class="stat reveal" style="--d:.05s"><span class="stat__num" data-count="114">0</span><span class="stat__label">Surahs</span></div>
+      <div class="stat reveal" style="--d:.12s"><span class="stat__num" data-count="6236">0</span><span class="stat__label">Qur'anic verses</span></div>
+      <div class="stat reveal" style="--d:.19s"><span class="stat__num" data-count="72313">0</span><span class="stat__label">Hadith · 9 collections</span></div>
+      <div class="stat reveal" style="--d:.26s"><span class="stat__num" data-count="99">0</span><span class="stat__label">Names of Allah</span></div>
+      <div class="stat reveal" style="--d:.33s"><span class="stat__num" data-count="0">0</span><span class="stat__label">Data collected</span></div>
+      <div class="stat reveal" style="--d:.40s"><span class="stat__num" data-count="3">0</span><span class="stat__label">Billion-parameter model, on-device</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TESTIMONIAL / QUOTE ═══════════════ -->
+<section class="quote">
+  <div class="quote__inner reveal">
+    <span class="quote__mark">❝</span>
+    <p>And We have certainly made the Qur'an easy for remembrance,<br>so is there any who will remember?</p>
+    <cite>Surah Al-Qamar 54:17</cite>
+  </div>
+</section>
+
+<!-- ═══════════════ AVAILABILITY / CTA ═══════════════ -->
+<section class="avail" id="availability">
+  <div class="avail__inner">
+    <p class="eyebrow eyebrow--gold reveal">Available now</p>
+    <h2 class="avail__title reveal">Begin tonight.</h2>
+    <p class="avail__sub reveal" style="--d:.12s">Free. Offline. Yours. <strong>Android 7.0+</strong> · arm64 devices</p>
+    <div class="avail__actions reveal" style="--d:.24s">
+      <a class="btn btn--gold btn--xl magnetic" href="https://github.com/RashidGamer2012/Al-Rasheed-AI/releases/tag/latest-apk-download" target="_blank" rel="noopener">⬇ Download latest APK</a>
+      <a class="btn btn--ghost btn--xl magnetic" href="https://github.com/RashidGamer2012/Al-Rasheed-AI" target="_blank" rel="noopener">View source on GitHub</a>
+    </div>
+    <p class="avail__note reveal" style="--d:.36s">Direct APK sideload · v1.5.2 (versionCode 21) · ~219&nbsp;MB with the full library + recitation AI bundled</p>
+    <div class="avail__strip reveal" style="--d:.44s">
+      <div class="avail__phone">
+        <div class="phone">
+          <div class="phone__screen">
+            <div class="scr scr--home">
+              <div class="scr__head">Al-Rasheed AI</div>
+              <div class="scr__grid">
+                <span>🕌</span><span>📖</span><span>🧭</span>
+                <span>📿</span><span>✨</span><span>🕋</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="quran-float" aria-hidden="true">﷽</div>
+    <div class="avail__basmala reveal">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <svg viewBox="0 0 64 64" class="nav__mark" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2"/><path d="M32 10l5.2 12.4L50 24l-9.4 8.9L43 46l-11-6.6L21 46l2.4-13.2L14 24l12.8-1.6z" fill="currentColor"/></svg>
+      <div>
+        <strong>Al-Rasheed AI</strong>
+        <p>The complete Islamic companion. Offline. Private. Yours.</p>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <h4>App</h4>
+        <a href="#ai">AI Scholar</a><a href="#features">Features</a><a href="#trust">Transparency</a><a href="#availability">Download</a>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <a href="https://github.com/RashidGamer2012/Al-Rasheed-AI" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/RashidGamer2012/Al-Rasheed-AI/releases/tag/latest-apk-download" target="_blank" rel="noopener">Releases</a>
+        <a href="https://github.com/RashidGamer2012/Al-Rasheed-AI/issues" target="_blank" rel="noopener">Issues</a>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <p>© 2026 Al-Rasheed AI. Built with adab.</p>
+      <p class="footer__credits">Videos &amp; imagery: <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> (free to use). Fonts: Google Fonts.</p>
+      <p class="footer__disclaimer">AI answers include references for verification. For rulings (fatwa), consult qualified scholars.</p>
+    </div>
+    <a class="to-top magnetic" href="#top" aria-label="Back to top">↑</a>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
